@@ -1,0 +1,12 @@
+name: AntiAFK
+main: me.jascotty2.anti_afk.AntiAFK_Plugin
+version: 0.1
+author: jascotty2
+website: https://github.com/jascotty2/AntiAFK
+description: >
+    remove or track AFK players
+commands:
+   afk:
+    description: General command for interacting with the plugin
+    usage: /<command>
+    aliases: [aafk]
