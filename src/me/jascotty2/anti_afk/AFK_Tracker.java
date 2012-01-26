@@ -23,10 +23,10 @@ public class AFK_Tracker implements Listener, Runnable {
 		updatePlayerlist();
 	}
 
-	@EventHandler(priority = EventPriority.MONITOR)
-	public void onBlockBreak(BlockBreakEvent event) {
-		update(event.getPlayer().getName());
-	}
+//	@EventHandler(priority = EventPriority.MONITOR)
+//	public void onBlockBreak(BlockBreakEvent event) {
+//		update(event.getPlayer().getName());
+//	}
 
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onPlayerChat(PlayerChatEvent event) {
@@ -94,7 +94,7 @@ public class AFK_Tracker implements Listener, Runnable {
 					PlayerInfo i = players.get(p.getName());
 					if ((conf.vehicleMove ? !i.hasMoved(p.getLocation())
 							: (!p.isInsideVehicle() && !i.hasMoved(p.getLocation())))
-							&& i.lastMove() > conf.afkTimeout) {
+							&& (i.lastMove() > (conf.allowBed ? conf.afkTimeout * (p.isSleeping() ? 2 : 1) : conf.afkTimeout))) {
 						i.isAFK = true;
 						plugin.playerAFK(p);
 					} else if (i.isAFK) {

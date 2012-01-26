@@ -16,7 +16,9 @@ public class Settings {
 	public boolean kick = true, 
 			kickOP = false,
 			vehicleMove = true, // if movements while in a vehicle are counted 
-			afkPickup = false; // if an AFK can pickup Items
+			afkPickup = false, // if an AFK can pickup Items
+			allowBed = true, // if in bed, allow for 2x more time before kicking
+			afkAsleep = true; // if afk, count them as asleep?
 	protected String kickMsg = "Kicked for idling.";
 	public String kickBroadcast = "was kicked for idling.",
 			afkMessage = "is now AFK",
